@@ -1,0 +1,20 @@
+<svg width="1280" height="800" viewBox="0 0 1280 800" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Portfolio project placeholder</title>
+  <desc id="desc">A dark portfolio layout preview with profile content and project cards.</desc>
+  <rect width="1280" height="800" fill="#10131A"/>
+  <rect x="102" y="88" width="1076" height="624" rx="30" fill="#191E29" stroke="#3B465A" stroke-width="2"/>
+  <rect x="154" y="146" width="168" height="18" rx="9" fill="#65AEFA"/>
+  <rect x="154" y="216" width="438" height="44" rx="22" fill="#D8EAFF"/>
+  <rect x="154" y="286" width="520" height="18" rx="9" fill="#657084"/>
+  <rect x="154" y="326" width="430" height="18" rx="9" fill="#657084"/>
+  <rect x="154" y="404" width="150" height="48" rx="12" fill="#65AEFA"/>
+  <rect x="326" y="404" width="150" height="48" rx="12" fill="#242C3A" stroke="#596577"/>
+  <rect x="736" y="166" width="330" height="350" rx="24" fill="#11151D" stroke="#344054"/>
+  <circle cx="800" cy="230" r="26" fill="#96C8FF"/>
+  <rect x="766" y="292" width="224" height="18" rx="9" fill="#D8EAFF"/>
+  <rect x="766" y="342" width="244" height="14" rx="7" fill="#657084"/>
+  <rect x="766" y="382" width="180" height="14" rx="7" fill="#657084"/>
+  <rect x="154" y="560" width="278" height="92" rx="18" fill="#141A23" stroke="#344054"/>
+  <rect x="470" y="560" width="278" height="92" rx="18" fill="#141A23" stroke="#344054"/>
+  <rect x="786" y="560" width="278" height="92" rx="18" fill="#141A23" stroke="#344054"/>
+</svg>

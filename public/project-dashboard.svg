@@ -1,0 +1,22 @@
+<svg width="1280" height="800" viewBox="0 0 1280 800" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Dashboard project placeholder</title>
+  <desc id="desc">A dark analytics dashboard preview with charts and status widgets.</desc>
+  <rect width="1280" height="800" fill="#12161E"/>
+  <rect x="82" y="74" width="1116" height="652" rx="30" fill="#1A202B" stroke="#3B465A" stroke-width="2"/>
+  <rect x="126" y="120" width="220" height="560" rx="20" fill="#10151D"/>
+  <rect x="390" y="120" width="720" height="90" rx="20" fill="#151B25" stroke="#344054"/>
+  <rect x="390" y="250" width="334" height="208" rx="20" fill="#151B25" stroke="#344054"/>
+  <rect x="766" y="250" width="344" height="208" rx="20" fill="#151B25" stroke="#344054"/>
+  <rect x="390" y="498" width="720" height="152" rx="20" fill="#151B25" stroke="#344054"/>
+  <rect x="166" y="166" width="118" height="18" rx="9" fill="#D8EAFF"/>
+  <rect x="166" y="226" width="124" height="12" rx="6" fill="#657084"/>
+  <rect x="166" y="270" width="92" height="12" rx="6" fill="#657084"/>
+  <rect x="166" y="314" width="136" height="12" rx="6" fill="#657084"/>
+  <rect x="438" y="154" width="258" height="18" rx="9" fill="#D8EAFF"/>
+  <rect x="820" y="154" width="198" height="18" rx="9" fill="#657084"/>
+  <path d="M438 400L494 356L552 378L610 312L676 334" stroke="#65AEFA" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="820" y="320" width="210" height="22" rx="11" fill="#D8EAFF"/>
+  <rect x="820" y="374" width="154" height="16" rx="8" fill="#657084"/>
+  <rect x="438" y="554" width="570" height="18" rx="9" fill="#657084"/>
+  <rect x="438" y="600" width="460" height="18" rx="9" fill="#65AEFA" fill-opacity="0.78"/>
+</svg>

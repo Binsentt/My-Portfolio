@@ -1,0 +1,36 @@
+<svg width="1200" height="750" viewBox="0 0 1200 750" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Theresian's Quest project preview</title>
+  <desc id="desc">A dark professional website preview with blue accents for the Theresian's Quest featured project.</desc>
+  <rect width="1200" height="750" rx="32" fill="#10141D"/>
+  <rect x="52" y="52" width="1096" height="646" rx="28" fill="#141A25" stroke="#263142" stroke-width="2"/>
+  <circle cx="1018" cy="164" r="210" fill="#3F8FE5" fill-opacity="0.16"/>
+  <circle cx="205" cy="598" r="170" fill="#65AEFA" fill-opacity="0.1"/>
+  <path d="M98 166H1102" stroke="#273244" stroke-width="2"/>
+  <circle cx="112" cy="112" r="13" fill="#65AEFA"/>
+  <circle cx="153" cy="112" r="13" fill="#96C8FF" fill-opacity="0.72"/>
+  <circle cx="194" cy="112" r="13" fill="#D8EAFF" fill-opacity="0.46"/>
+  <rect x="742" y="96" width="96" height="32" rx="16" fill="#202A3A"/>
+  <rect x="860" y="96" width="96" height="32" rx="16" fill="#202A3A"/>
+  <rect x="978" y="96" width="96" height="32" rx="16" fill="#65AEFA" fill-opacity="0.18"/>
+  <rect x="114" y="222" width="460" height="48" rx="24" fill="#65AEFA" fill-opacity="0.14"/>
+  <text x="142" y="253" fill="#96C8FF" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="3">FEATURED CAPSTONE</text>
+  <text x="114" y="348" fill="#FFFFFF" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="72" font-weight="800">Theresian's</text>
+  <text x="114" y="428" fill="#FFFFFF" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="72" font-weight="800">Quest</text>
+  <rect x="118" y="478" width="360" height="14" rx="7" fill="#D8EAFF" fill-opacity="0.72"/>
+  <rect x="118" y="512" width="456" height="14" rx="7" fill="#D8EAFF" fill-opacity="0.36"/>
+  <rect x="118" y="546" width="310" height="14" rx="7" fill="#D8EAFF" fill-opacity="0.26"/>
+  <rect x="118" y="608" width="176" height="52" rx="16" fill="#65AEFA"/>
+  <rect x="314" y="608" width="220" height="52" rx="16" fill="#FFFFFF" fill-opacity="0.06" stroke="#FFFFFF" stroke-opacity="0.12"/>
+  <rect x="654" y="214" width="384" height="424" rx="28" fill="#0F1117" stroke="#31405A" stroke-width="2"/>
+  <rect x="692" y="256" width="308" height="48" rx="16" fill="#65AEFA" fill-opacity="0.14"/>
+  <rect x="692" y="336" width="220" height="26" rx="13" fill="#FFFFFF" fill-opacity="0.86"/>
+  <rect x="692" y="382" width="270" height="16" rx="8" fill="#FFFFFF" fill-opacity="0.3"/>
+  <rect x="692" y="414" width="230" height="16" rx="8" fill="#FFFFFF" fill-opacity="0.2"/>
+  <rect x="692" y="480" width="88" height="88" rx="20" fill="#65AEFA" fill-opacity="0.18"/>
+  <rect x="810" y="480" width="88" height="88" rx="20" fill="#96C8FF" fill-opacity="0.12"/>
+  <rect x="928" y="480" width="72" height="88" rx="20" fill="#D8EAFF" fill-opacity="0.09"/>
+  <path d="M736 532L760 508L784 532L760 556L736 532Z" fill="#96C8FF"/>
+  <path d="M842 510H866L880 532L866 554H842L828 532L842 510Z" fill="#65AEFA"/>
+  <path d="M947 512H981V552H947V512Z" fill="#D8EAFF" fill-opacity="0.72"/>
+  <rect x="692" y="594" width="166" height="32" rx="16" fill="#65AEFA" fill-opacity="0.88"/>
+</svg>
