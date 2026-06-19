@@ -19,6 +19,7 @@ const requiredFiles = [
   'src/components/Footer.js',
   'src/components/ScrollProgress.js',
   'src/components/BackToTop.js',
+  'src/assets/theresians-quest-preview.png',
   'public/favicon.svg',
   'public/project-theresians-quest.svg',
   'public/resume.pdf'
@@ -107,8 +108,12 @@ assert.ok(css.includes('prefers-reduced-motion'), 'Reduced motion support should
 assert.ok(css.includes('hero-grid'), 'Hero should include the subtle animated background treatment');
 
 const projectsSource = readFileSync(join(root, 'src/components/Projects.js'), 'utf8');
-assert.ok(projectsSource.includes('GitHub Repository'), 'Project buttons should clearly say GitHub Repository');
-assert.ok(projectsSource.includes('Live Website'), 'Project buttons should clearly say Live Website');
+assert.ok(
+  projectsSource.includes("import theresiansQuestPreview from '../assets/theresians-quest-preview.png';"),
+  'Featured project preview should be imported from the provided image asset'
+);
+assert.ok(projectsSource.includes('GitHub Repo'), 'Project buttons should clearly say GitHub Repo');
+assert.ok(projectsSource.includes('Live Demo'), 'Project buttons should clearly say Live Demo');
 assert.ok(!projectsSource.includes('Future projects can be added'), 'Projects section should not show maintenance guidance to visitors');
 
 const resumeSource = readFileSync(join(root, 'src/components/Resume.js'), 'utf8');

@@ -1,8 +1,10 @@
 import React from 'react';
 import { ExternalLink, Github } from 'lucide-react';
 import { projects } from '../data/portfolio.js';
+import theresiansQuestPreview from '../assets/theresians-quest-preview.png';
 
 const isExternalLink = (href = '') => href.startsWith('http');
+const projectPreviewFor = (project) => (project.featured ? theresiansQuestPreview : project.image);
 
 function ProjectActions({ project, compact = false }) {
   const hasRepositoryLink = Boolean(project.links.github);
@@ -19,7 +21,7 @@ function ProjectActions({ project, compact = false }) {
         aria-label={`Open live website for ${project.title}`}
       >
         <ExternalLink size={compact ? 16 : 17} aria-hidden="true" />
-        Live Website
+        Live Demo
       </a>
       {hasRepositoryLink ? (
         <a
@@ -30,7 +32,7 @@ function ProjectActions({ project, compact = false }) {
           aria-label={`Open GitHub repository for ${project.title}`}
         >
           <Github size={compact ? 16 : 17} aria-hidden="true" />
-          GitHub Repository
+          GitHub Repo
         </a>
       ) : (
         <span
@@ -40,7 +42,7 @@ function ProjectActions({ project, compact = false }) {
           role="link"
         >
           <Github size={compact ? 16 : 17} aria-hidden="true" />
-          GitHub Repository
+          GitHub Repo
         </span>
       )}
     </div>
@@ -65,10 +67,10 @@ function Projects() {
         </div>
 
         {featuredProject && (
-          <article className="card-surface group mt-10 grid overflow-hidden transition duration-200 hover:-translate-y-1 hover:border-accent-300/35 hover:shadow-soft lg:grid-cols-[minmax(0,1.05fr)_minmax(320px,0.82fr)]">
-            <div className="aspect-[16/10] overflow-hidden border-b border-white/10 bg-ink-800 lg:aspect-auto lg:border-b-0 lg:border-r">
+          <article className="card-surface group mt-10 grid overflow-hidden transition duration-200 hover:-translate-y-1 hover:border-accent-300/35 hover:shadow-soft lg:grid-cols-[minmax(0,1.28fr)_minmax(300px,0.72fr)]">
+            <div className="aspect-[2/1] overflow-hidden border-b border-white/10 bg-ink-800 lg:aspect-auto lg:min-h-[28rem] lg:border-b-0 lg:border-r">
               <img
-                src={featuredProject.image}
+                src={projectPreviewFor(featuredProject)}
                 alt={`${featuredProject.title} project preview`}
                 className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.02]"
                 loading="lazy"
