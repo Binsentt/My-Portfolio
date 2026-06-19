@@ -120,6 +120,8 @@ assert.ok(appSource.includes('BackToTop'), 'App should render the back-to-top bu
 
 const navbarSource = readFileSync(join(root, 'src/components/Navbar.js'), 'utf8');
 assert.ok(navbarSource.includes('activeSection'), 'Navbar should track the active section');
+assert.ok(navbarSource.includes('window.scrollTo'), 'Navbar links should explicitly scroll the window to target sections');
+assert.ok(navbarSource.includes('history.pushState'), 'Navbar smooth scrolling should preserve the URL hash');
 
 const indexHtml = readFileSync(join(root, 'index.html'), 'utf8');
 assert.ok(indexHtml.includes('rel="icon"'), 'Favicon support should be present');

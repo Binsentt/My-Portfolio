@@ -47,12 +47,39 @@ function Navbar() {
     return () => observer.disconnect();
   }, []);
 
-  const handleLinkClick = () => setIsOpen(false);
+  const handleLinkClick = (event, href) => {
+    if (href?.startsWith('#')) {
+      const target = document.getElementById(href.slice(1));
+
+      if (target) {
+        event.preventDefault();
+
+        if (window.location.hash !== href) {
+          window.history.pushState(null, '', href);
+        }
+
+        const scrollMarginTop = parseFloat(window.getComputedStyle(target).scrollMarginTop) || 0;
+        const top = target.getBoundingClientRect().top + window.scrollY - scrollMarginTop;
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        window.requestAnimationFrame(() => {
+          window.scrollTo({
+            top: Math.max(0, top),
+            behavior: prefersReducedMotion ? 'auto' : 'smooth'
+          });
+        });
+
+        setActiveSection(target.id);
+      }
+    }
+
+    setIsOpen(false);
+  };
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-ink-950/[0.82] backdrop-blur-xl">
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-6 lg:px-8" aria-label="Primary navigation">
-        <a href="#home" className="group flex items-center gap-3" onClick={handleLinkClick}>
+        <a href="#home" className="group flex items-center gap-3" onClick={(event) => handleLinkClick(event, '#home')}>
           <span className="grid h-9 w-9 place-items-center rounded-lg border border-accent-300/30 bg-accent-400/10 text-sm font-bold text-accent-100 transition group-hover:border-accent-300/70">
             VT
           </span>
@@ -70,6 +97,7 @@ function Navbar() {
                   : 'text-slate-300 hover:bg-white/[0.06] hover:text-white'
               }`}
               aria-current={activeSection === item.href.slice(1) ? 'page' : undefined}
+              onClick={(event) => handleLinkClick(event, item.href)}
             >
               {item.label}
             </a>
@@ -106,6 +134,7 @@ function Navbar() {
                   : 'text-slate-200 hover:bg-white/[0.06] hover:text-white'
               }`}
               aria-current={activeSection === item.href.slice(1) ? 'page' : undefined}
+              onClick={(event) => handleLinkClick(event, item.href)}
             >
               {item.label}
             </a>
