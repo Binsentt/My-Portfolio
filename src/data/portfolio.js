@@ -68,7 +68,7 @@ export const projects = [
     description:
       "A capstone web experience for Theresian's Quest, built to present the project clearly, guide visitors through the live site, and demonstrate full stack development practice.",
     image: '/project-theresians-quest.svg',
-    tech: ['React', 'JavaScript', 'Node.js', 'PostgreSQL', 'Railway', 'Vercel'],
+    tech: ['React', 'JavaScript', 'Node.js', 'PostgreSQL', 'Railway'],
     links: {
       live: 'https://theresiansquest.com/',
       github: projectRepositoryUrls.theresiansQuest

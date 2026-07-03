@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
-import { existsSync, readdirSync, readFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
+import { extname, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const root = join(fileURLToPath(new URL('..', import.meta.url)));
@@ -20,6 +20,7 @@ const requiredFiles = [
   'src/components/ScrollProgress.js',
   'src/components/BackToTop.js',
   'src/assets/theresians-quest-preview.png',
+  'vercel.json',
   'public/favicon.svg',
   'public/project-theresians-quest.svg',
   'public/resume.pdf'
@@ -28,6 +29,54 @@ const requiredFiles = [
 for (const file of requiredFiles) {
   assert.ok(existsSync(join(root, file)), `Missing required file: ${file}`);
 }
+
+const textExtensions = new Set(['.css', '.html', '.js', '.json', '.md', '.svg', '.txt', '.yaml', '.yml']);
+const ignoredDirectories = new Set(['.git', '.vercel', 'dist', 'node_modules']);
+const filesWithConflictMarkers = [];
+
+function collectTextFiles(directory) {
+  for (const entry of readdirSync(directory)) {
+    if (ignoredDirectories.has(entry)) {
+      continue;
+    }
+
+    const absolutePath = join(directory, entry);
+    const stats = statSync(absolutePath);
+
+    if (stats.isDirectory()) {
+      collectTextFiles(absolutePath);
+      continue;
+    }
+
+    if (!textExtensions.has(extname(entry))) {
+      continue;
+    }
+
+    const source = readFileSync(absolutePath, 'utf8');
+    if (/^(<<<<<<<|=======|>>>>>>>)/m.test(source)) {
+      filesWithConflictMarkers.push(absolutePath.replace(`${root}\\`, '').replaceAll('\\', '/'));
+    }
+  }
+}
+
+collectTextFiles(root);
+assert.deepEqual(filesWithConflictMarkers, [], 'Repository text files should not contain unresolved merge conflict markers');
+
+const packageJson = JSON.parse(readFileSync(join(root, 'package.json'), 'utf8'));
+assert.equal(packageJson.packageManager, 'pnpm@10.33.0', 'Package manager should be pinned for Vercel installs');
+assert.equal(packageJson.engines?.node, '^20.19.0 || >=22.12.0', 'Node engine should match Vite 7 requirements');
+assert.equal(packageJson.scripts.build, 'vite build --configLoader runner', 'Build script should match the Vercel build command');
+
+const vercelConfig = JSON.parse(readFileSync(join(root, 'vercel.json'), 'utf8'));
+assert.equal(vercelConfig.framework, 'vite', 'Vercel framework preset should be Vite');
+assert.equal(vercelConfig.installCommand, 'pnpm install --frozen-lockfile', 'Vercel install command should use the committed pnpm lockfile');
+assert.equal(vercelConfig.buildCommand, 'pnpm run build', 'Vercel build command should run the package build script');
+assert.equal(vercelConfig.outputDirectory, 'dist', 'Vercel output directory should match Vite output');
+assert.deepEqual(
+  vercelConfig.rewrites,
+  [{ source: '/(.*)', destination: '/index.html' }],
+  'Vercel should rewrite SPA routes to index.html'
+);
 
 assert.ok(!existsSync(join(root, 'src/App.jsx')), 'App component should use a .js extension');
 assert.deepEqual(
