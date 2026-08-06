@@ -123,11 +123,16 @@ assert.deepEqual(aiTools, ['Development', 'Debugging', 'Learning', 'Productivity
 assert.ok(projects.length >= 1, 'At least the featured project should be present');
 assert.ok(!projects.some((project) => /Smart\s*Canteen/i.test(project.title)), 'SmartCanteen must be removed');
 assert.ok(
-  projects.every((project) => project.image && project.tech.length && project.links.live && Object.hasOwn(project.links, 'github')),
-  'Each project needs image, tech, live website, and a configurable GitHub field'
+  projects.every((project) => project.image && project.tech.length && Object.hasOwn(project.links, 'github')),
+  'Each project needs image, tech, and a configurable GitHub field'
+);
+assert.ok(
+  projects.some((project) => project.links.live),
+  'At least one project should have a live website link'
 );
 const featuredProject = projects.find((project) => project.featured);
 assert.equal(featuredProject?.title, "Theresian's Quest");
+assert.ok(featuredProject?.links.live, 'Featured project should have a live website link');
 assert.equal(featuredProject?.links.live, 'https://theresiansquest.com/');
 assert.equal(
   featuredProject?.links.github,
@@ -140,6 +145,19 @@ assert.notEqual(
   'Featured project GitHub link should not default to the personal GitHub profile'
 );
 assert.ok(featuredProject?.image.includes('theresians'), 'Featured project should use a Theresian image asset');
+
+const aquilityProject = projects.find((project) => project.title === 'Aquility System');
+assert.ok(aquilityProject, 'Aquility System project should be present');
+assert.equal(aquilityProject?.image, '/Aquility.png', 'Aquility System should reference the Aquility image');
+assert.equal(aquilityProject?.links.github, 'https://github.com/Binsentt/Aquility-Project');
+assert.ok(
+  !aquilityProject?.links.live,
+  'Aquility System should not have a live website button until it is deployed'
+);
+assert.ok(
+  aquilityProject?.tech.includes('Tailwind CSS'),
+  'Aquility System should include the Tailwind CSS badge'
+);
 
 assert.ok(contacts.some((contact) => contact.type === 'Facebook'), 'Missing Facebook contact card');
 assert.ok(contacts.some((contact) => contact.type === 'Email'), 'Missing email contact card');

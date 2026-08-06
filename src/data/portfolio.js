@@ -1,5 +1,6 @@
 export const projectRepositoryUrls = {
-  theresiansQuest: 'https://github.com/Binsentt/My-Portfolio'
+  theresiansQuest: 'https://github.com/Binsentt/My-Portfolio',
+  aquilitySystem: 'https://github.com/Binsentt/Aquility-Project'
 };
 
 export const profile = {
@@ -72,6 +73,18 @@ export const projects = [
     links: {
       live: 'https://theresiansquest.com/',
       github: projectRepositoryUrls.theresiansQuest
+    }
+  },
+  {
+    title: 'Aquility System',
+    eyebrow: 'Full Stack Web Application',
+    featured: false,
+    description:
+      'Aquility System is a smart water quality monitoring platform designed to help barangays, communities, environmental teams, and health workers monitor water quality efficiently. The system provides an intuitive interface for tracking water quality information and managing monitoring workflows.',
+    image: '/Aquility.png',
+    tech: ['React', 'JavaScript', 'HTML', 'CSS', 'Tailwind CSS', 'Node.js', 'PostgreSQL', 'Git', 'GitHub', 'Vite', 'Railway'],
+    links: {
+      github: projectRepositoryUrls.aquilitySystem
     }
   }
 ];

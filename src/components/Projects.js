@@ -2,27 +2,39 @@ import React from 'react';
 import { ExternalLink, Github } from 'lucide-react';
 import { projects } from '../data/portfolio.js';
 import theresiansQuestPreview from '../assets/theresians-quest-preview.png';
+import aquilityPreview from '../assets/Aquility.png';
 
 const isExternalLink = (href = '') => href.startsWith('http');
-const projectPreviewFor = (project) => (project.featured ? theresiansQuestPreview : project.image);
+
+const projectPreviewImages = {
+  'Aquility System': aquilityPreview
+};
+
+const projectPreviewFor = (project) => {
+  if (project.featured) return theresiansQuestPreview;
+  return projectPreviewImages[project.title] ?? project.image;
+};
 
 function ProjectActions({ project, compact = false }) {
+  const hasLiveLink = Boolean(project.links.live && isExternalLink(project.links.live));
   const hasRepositoryLink = Boolean(project.links.github);
   const liveClassName = compact ? 'button-secondary px-3 py-2 text-center' : 'button-primary px-4 py-2 text-center';
   const githubClassName = compact ? 'button-secondary px-3 py-2 text-center' : 'button-secondary px-4 py-2 text-center';
 
   return (
-    <div className="mt-8 grid gap-3 sm:grid-cols-2">
-      <a
-        href={project.links.live}
-        className={liveClassName}
-        target={isExternalLink(project.links.live) ? '_blank' : undefined}
-        rel={isExternalLink(project.links.live) ? 'noreferrer' : undefined}
-        aria-label={`Open live website for ${project.title}`}
-      >
-        <ExternalLink size={compact ? 16 : 17} aria-hidden="true" />
-        Live Demo
-      </a>
+    <div className={`mt-8 grid gap-3 ${hasLiveLink ? 'sm:grid-cols-2' : ''}`}>
+      {hasLiveLink && (
+        <a
+          href={project.links.live}
+          className={liveClassName}
+          target="_blank"
+          rel="noreferrer"
+          aria-label={`Open live website for ${project.title}`}
+        >
+          <ExternalLink size={compact ? 16 : 17} aria-hidden="true" />
+          Live Demo
+        </a>
+      )}
       {hasRepositoryLink ? (
         <a
           href={project.links.github}
@@ -101,7 +113,7 @@ function Projects() {
               <article key={project.title} className="card-surface group flex min-h-full flex-col overflow-hidden transition duration-200 hover:-translate-y-1 hover:border-accent-300/35">
                 <div className="aspect-[16/10] overflow-hidden border-b border-white/10 bg-ink-800">
                   <img
-                    src={project.image}
+                    src={projectPreviewFor(project)}
                     alt={`${project.title} project preview`}
                     className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.025]"
                     loading="lazy"
