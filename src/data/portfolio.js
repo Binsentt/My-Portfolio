@@ -80,6 +80,7 @@ export const projects = [
     title: 'Aquility System',
     eyebrow: 'Full Stack Web Application',
     featured: false,
+    imageFit: 'contain',
     description:
       'Aquility System is a smart water quality monitoring platform designed to help barangays, communities, environmental teams, and health workers monitor water quality efficiently. The system provides an intuitive interface for tracking water quality information and managing monitoring workflows.',
     image: '/Aquility.png',
