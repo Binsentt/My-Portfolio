@@ -8,5 +8,5 @@
 - [x] Run `pnpm test`
 - [x] Run `pnpm build`
 - [x] Verify layout on viewports (1440x900, 1280x800, 768x1024, 390x844)
-- [ ] Commit with `feat: add Orderly Canteen project to portfolio`
-- [ ] Push to `main` branch
+- [x] Commit with `feat: add Orderly Canteen project to portfolio`
+- [x] Push to `main` branch
