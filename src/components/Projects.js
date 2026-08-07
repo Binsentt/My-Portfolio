@@ -3,17 +3,21 @@ import { ExternalLink, Github } from 'lucide-react';
 import { projects } from '../data/portfolio.js';
 import theresiansQuestPreview from '../assets/theresians-quest-preview.png';
 import aquilityPreview from '../assets/Aquility.png';
+import canteenPreview from '../assets/Canteen.jpg';
 
 const isExternalLink = (href = '') => href.startsWith('http');
 
 const projectPreviewImages = {
-  'Aquility System': aquilityPreview
+  'Aquility System': aquilityPreview,
+  'Orderly Canteen': canteenPreview
 };
 
 const projectPreviewFor = (project) => {
   if (project.featured) return theresiansQuestPreview;
   return projectPreviewImages[project.title] ?? project.image;
 };
+
+const isMobilePreview = (project) => project.imageFit === 'contain';
 
 function ProjectActions({ project, compact = false }) {
   const hasLiveLink = Boolean(project.links.live && isExternalLink(project.links.live));
@@ -111,11 +115,21 @@ function Projects() {
           <div className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {supportingProjects.map((project) => (
               <article key={project.title} className="card-surface group flex min-h-full flex-col overflow-hidden transition duration-200 hover:-translate-y-1 hover:border-accent-300/35">
-                <div className="aspect-[16/10] overflow-hidden border-b border-white/10 bg-ink-800">
+                <div
+                  className={
+                    isMobilePreview(project)
+                      ? 'flex max-h-[22rem] min-h-[16rem] items-center justify-center overflow-hidden border-b border-white/10 bg-ink-800/80 p-6'
+                      : 'aspect-[16/10] overflow-hidden border-b border-white/10 bg-ink-800'
+                  }
+                >
                   <img
                     src={projectPreviewFor(project)}
                     alt={`${project.title} project preview`}
-                    className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.025]"
+                    className={
+                      isMobilePreview(project)
+                        ? 'max-h-full max-w-full object-contain transition duration-300 group-hover:scale-[1.02]'
+                        : 'h-full w-full object-cover transition duration-300 group-hover:scale-[1.025]'
+                    }
                     loading="lazy"
                   />
                 </div>

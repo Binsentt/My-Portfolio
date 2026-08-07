@@ -1,6 +1,7 @@
 export const projectRepositoryUrls = {
   theresiansQuest: 'https://github.com/Binsentt/My-Portfolio',
-  aquilitySystem: 'https://github.com/Binsentt/Aquility-Project'
+  aquilitySystem: 'https://github.com/Binsentt/Aquility-Project',
+  orderlyCanteen: 'https://github.com/Binsentt/Canteen-Ordering-System'
 };
 
 export const profile = {
@@ -85,6 +86,19 @@ export const projects = [
     tech: ['React', 'JavaScript', 'HTML', 'CSS', 'Tailwind CSS', 'Node.js', 'PostgreSQL', 'Git', 'GitHub', 'Vite', 'Railway'],
     links: {
       github: projectRepositoryUrls.aquilitySystem
+    }
+  },
+  {
+    title: 'Orderly Canteen',
+    eyebrow: 'Mobile Canteen Ordering Application',
+    featured: false,
+    imageFit: 'contain',
+    description:
+      'Orderly Canteen is a mobile canteen ordering application designed to make school food ordering faster and more organized. Students can browse available meals, manage their cart, choose a payment option, place orders, and track their order status. Staff members can manage incoming orders and move them through the preparation workflow until completion.',
+    image: '/Canteen.jpg',
+    tech: ['React Native', 'Expo', 'JavaScript', 'Node.js', 'PostgreSQL', 'Git', 'GitHub'],
+    links: {
+      github: projectRepositoryUrls.orderlyCanteen
     }
   }
 ];

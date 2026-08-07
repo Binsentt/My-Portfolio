@@ -1,14 +1,12 @@
-# TODO: Add Aquility System Project to Portfolio
+# TODO — Add Orderly Canteen project to portfolio
 
-- [x] Add Aquility System data to `src/data/portfolio.js`
-- [x] Update `src/components/Projects.js` to render Aquility preview image and conditional Live Demo button
-- [x] Update `scripts/check-portfolio.mjs` to reflect conditional Live Demo behavior
-- [x] Verify Aquility image loads correctly (bundled as `Aquility-DdP7SgYZ.png`)
-- [x] Verify GitHub Repository button opens the correct URL in a new tab
-- [x] Verify Theresian's Quest remains the featured project
-- [x] Verify layout remains responsive on desktop, tablet, and mobile (grid keeps md/xl breakpoints)
-- [x] Run the automated test suite (`node scripts/check-portfolio.mjs`)
-- [x] Run the production build (`vite build`)
-- [x] Check for console errors and layout regressions
-- [ ] Commit and push the completed changes
-
+## Steps
+- [x] Add Orderly Canteen project data + repository URL in `src/data/portfolio.js`
+- [x] Implement mobile screenshot preview mode (object-contain) in `src/components/Projects.js`
+- [x] Make GitHub-only button fit card width professionally
+- [x] Update `scripts/check-portfolio.mjs` with Orderly Canteen checks
+- [x] Run `pnpm test`
+- [x] Run `pnpm build`
+- [x] Verify layout on viewports (1440x900, 1280x800, 768x1024, 390x844)
+- [ ] Commit with `feat: add Orderly Canteen project to portfolio`
+- [ ] Push to `main` branch

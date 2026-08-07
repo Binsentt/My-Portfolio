@@ -20,6 +20,7 @@ const requiredFiles = [
   'src/components/ScrollProgress.js',
   'src/components/BackToTop.js',
   'src/assets/theresians-quest-preview.png',
+  'src/assets/Canteen.jpg',
   'vercel.json',
   'public/favicon.svg',
   'public/project-theresians-quest.svg',
@@ -159,6 +160,17 @@ assert.ok(
   'Aquility System should include the Tailwind CSS badge'
 );
 
+const canteenProject = projects.find((project) => project.title === 'Orderly Canteen');
+assert.ok(canteenProject, 'Orderly Canteen project should be present');
+assert.notEqual(canteenProject?.featured, true, 'Orderly Canteen should not be marked as featured');
+assert.equal(canteenProject?.image, '/Canteen.jpg', 'Orderly Canteen should reference the Canteen image');
+assert.equal(canteenProject?.imageFit, 'contain', 'Orderly Canteen should use a contain-fit mobile preview');
+assert.equal(canteenProject?.links.github, 'https://github.com/Binsentt/Canteen-Ordering-System');
+assert.ok(!canteenProject?.links.live, 'Orderly Canteen should not have a live website button until it is deployed');
+for (const tech of ['React Native', 'Expo', 'JavaScript', 'Node.js', 'PostgreSQL']) {
+  assert.ok(canteenProject?.tech.includes(tech), `Orderly Canteen should include the ${tech} badge`);
+}
+
 assert.ok(contacts.some((contact) => contact.type === 'Facebook'), 'Missing Facebook contact card');
 assert.ok(contacts.some((contact) => contact.type === 'Email'), 'Missing email contact card');
 assert.ok(contacts.some((contact) => contact.type === 'GitHub'), 'Missing GitHub contact card');
@@ -179,6 +191,11 @@ assert.ok(
   projectsSource.includes("import theresiansQuestPreview from '../assets/theresians-quest-preview.png';"),
   'Featured project preview should be imported from the provided image asset'
 );
+assert.ok(
+  projectsSource.includes("import canteenPreview from '../assets/Canteen.jpg';"),
+  'Canteen preview should be imported from the provided image asset'
+);
+assert.ok(projectsSource.includes('object-contain'), 'Mobile previews should use object-contain');
 assert.ok(projectsSource.includes('GitHub Repo'), 'Project buttons should clearly say GitHub Repo');
 assert.ok(projectsSource.includes('Live Demo'), 'Project buttons should clearly say Live Demo');
 assert.ok(!projectsSource.includes('Future projects can be added'), 'Projects section should not show maintenance guidance to visitors');
