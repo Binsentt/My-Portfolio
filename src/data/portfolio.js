@@ -82,9 +82,9 @@ export const projects = [
     featured: false,
     imageFit: 'contain',
     description:
-      'Aquility System is a smart water quality monitoring platform designed to help barangays, communities, environmental teams, and health workers monitor water quality efficiently. The system provides an intuitive interface for tracking water quality information and managing monitoring workflows.',
+      '**Aquility System** is a full-stack mobile application developed for water quality monitoring. It enables users to scan paper microfluidic test strips, analyze water quality, capture GPS coordinates, generate reports, and manage historical records through a secure authentication system. The application integrates mobile technologies, GIS mapping, image analysis, and a PostgreSQL-backed REST API to support environmental monitoring.',
     image: '/Aquility.png',
-    tech: ['React', 'JavaScript', 'HTML', 'CSS', 'Tailwind CSS', 'Node.js', 'PostgreSQL', 'Git', 'GitHub', 'Vite', 'Railway'],
+    tech: ['React Native', 'Expo', 'JavaScript', 'Node.js', 'Express.js', 'PostgreSQL', 'React Native Maps', 'Expo Location', 'Expo Camera', 'Expo Image Picker', 'JWT Authentication', 'Git', 'GitHub', 'VS Code'],
     links: {
       github: projectRepositoryUrls.aquilitySystem
     }

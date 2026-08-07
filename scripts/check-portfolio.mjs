@@ -155,10 +155,9 @@ assert.ok(
   !aquilityProject?.links.live,
   'Aquility System should not have a live website button until it is deployed'
 );
-assert.ok(
-  aquilityProject?.tech.includes('Tailwind CSS'),
-  'Aquility System should include the Tailwind CSS badge'
-);
+for (const tech of ['React Native', 'Expo', 'JavaScript', 'Node.js', 'PostgreSQL']) {
+  assert.ok(aquilityProject?.tech.includes(tech), `Aquility System should include the ${tech} badge`);
+}
 
 const canteenProject = projects.find((project) => project.title === 'Orderly Canteen');
 assert.ok(canteenProject, 'Orderly Canteen project should be present');
