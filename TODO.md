@@ -5,5 +5,5 @@
 - [x] Run `node scripts/check-portfolio.mjs`
 - [x] Run `pnpm build`
 - [x] Quick browser QA verification
-- [ ] Commit with `fix: show full Aquility project preview`
-- [ ] Push to `main` branch
+- [x] Commit with `fix: show full Aquility project preview`
+- [x] Push to `main` branch
